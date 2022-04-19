@@ -37,12 +37,13 @@ results <- data.frame(
 )
 results
 
+paste(round((sum(results$CI_simulated ==FALSE)/ (sum(results$CI_simulated)+sum(results$CI_simulated ==FALSE)))*100, 3), "% of confidence intervals excluded the slope parameter", sep ="")
 
 mean(unlist(b1hat_simulated))
 
 qplot(seq_along(unlist(b1hat_simulated)), unlist(b1hat_simulated))+
   geom_point(,colour="RED3") +
-  labs(title ="Residual Plots - Omitted Variable",
+  labs(title ="Slope Parameter Plots - Omitted Variable",
        caption = "Population parameter: b1=3", 
        x="Estimated parameter",
        y= "Iteration")
@@ -78,8 +79,8 @@ results
 mean(unlist(b1hat_simulated))
 
 qplot(seq_along(unlist(b1hat_simulated)), unlist(b1hat_simulated))+
-  geom_point(,colour="RED3") +
-  labs(title ="Residual Plots - Omitted Variable bias",
+  geom_point(,colour="BLUE4") +
+  labs(title ="Slope Parameter Plots - Omitted Variable bias",
        caption = "Population parameter: b1=3", 
        x="Estimated parameter",
        y= "Iteration")
